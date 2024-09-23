@@ -87,15 +87,16 @@ const DynamicIsland = (): JSX.Element => {
     <AnimatePresence>
       <motion.div
         ref={islandRef}
-        className="Dynamic-island bg-black mx-auto shadow-2xl rounded-2xl w-12 min-w-12 h-12 min-h-12 flex items-center justify-start gap-2"
+        className="Dynamic-island bg-black mx-auto shadow-2xl rounded-b-2xl w-12 min-w-12 h-12 min-h-12 flex items-center justify-start gap-2"
         initial={{
           opacity: 0,
           y: -DYNAMIC_ISLAND_INITIAL_RENDER_TOP_DISTANCE,
         }}
-        animate={{ opacity: 1, y: 0 }}
+        animate={{ opacity: 1, y: -12 }}
         whileHover={{
           width: "40%",
-          borderRadius: "24px",
+          borderBottomLeftRadius: "24px",
+          borderBottomRightRadius: "24px",
           justifyContent: "flex-start",
           filter: UIState.SHOW_BLUR ? "blur(4px)" : "none",
         }}
@@ -132,7 +133,7 @@ const DynamicIsland = (): JSX.Element => {
               src={PixyAvatar}
               alt="pixy-avatar"
               loading="eager"
-              className="w-6 h-6 max-w-6 min-w-6 ml-3 select-none cursor-default"
+              className="w-6 h-6 max-w-6 min-w-6 ml-3 select-none cursor-default mix-blend-difference"
             />
             {UIState.VIEW === DYNAMIC_ISLAND_VIEW.SUGGESTIVE && (
               <>
